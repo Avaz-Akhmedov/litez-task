@@ -20,12 +20,14 @@ class CategorySeeder extends Seeder
         foreach (range(1,10) as $i) {
 
             $depth = rand(1,5);
-            $parent = $roots->random();
 
-            for ($level = 1; $level <= $depth; $level++) {
-                $parent = Category::factory()->create([
-                    'parent_id' => $parent->id,
-                ]);
+
+            foreach ($roots as $root) {
+                for ($level = 1; $level <= $depth; $level++) {
+                     Category::factory()->create([
+                        'parent_id' => $root->id,
+                    ]);
+                }
             }
         }
     }

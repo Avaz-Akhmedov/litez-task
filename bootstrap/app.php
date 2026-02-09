@@ -24,6 +24,11 @@ return Application::configure(basePath: dirname(__DIR__))
                 ->prefix('api')
                 ->middleware(['auth:sanctum',SubstituteBindings::class])
                 ->group(base_path('routes/crm.php'));
+
+            Route::middleware('api')
+                ->prefix('api')
+                ->middleware([SubstituteBindings::class])
+                ->group(base_path('routes/catalog.php'));
         },
     )
     ->withMiddleware(function (Middleware $middleware): void {
