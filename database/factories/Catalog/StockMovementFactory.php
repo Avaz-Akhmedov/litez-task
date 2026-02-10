@@ -14,7 +14,7 @@ class StockMovementFactory extends Factory
     {
         return [
             'stock_id' => Stock::factory(),
-            'quantity_change' => $this->faker->numberBetween(-10, 20),
+            'quantity_change' => $this->faker->numberBetween(10, 20),
             'reason' => $this->faker->randomElement(StockMovementReason::cases()),
         ];
     }

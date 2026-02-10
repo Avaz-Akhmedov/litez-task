@@ -14,6 +14,7 @@ class ProductStockResource extends JsonResource
             'id' => $this->id,
             'quantity' => $this->quantity,
             'reserved_quantity' => $this->reserved_quantity,
+            'stock_movement' => StockMovementResource::collection($this->whenLoaded('movements'))
         ];
     }
 }

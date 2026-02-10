@@ -57,6 +57,6 @@ class ProductController extends Controller
         return response()->json([
             'success' => true,
             'product' => ProductResource::make($product)
-        ],);
+        ]);
     }
 }

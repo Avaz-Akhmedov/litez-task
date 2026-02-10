@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Catalog\CategoryController;
+use App\Http\Controllers\Catalog\InventoryController;
 use App\Http\Controllers\Catalog\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,3 +14,7 @@ Route::get('/products/{product}', [ProductController::class, 'show']);
 Route::post('/products', [ProductController::class, 'store']);
 Route::put('/products/{id}', [ProductController::class, 'update']);
 
+
+
+Route::post('inventory/{product_id}/adjust',[InventoryController::class,'adjust']);
+Route::get('inventory/{product_id}/history',[InventoryController::class,'history']);
