@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Product extends Model
 {
 
-    use HasFactory, SoftDeletes,Sluggable;
+    use HasFactory, SoftDeletes, Sluggable;
 
     protected $fillable = [
         'name',
@@ -44,6 +44,11 @@ class Product extends Model
     public function stock(): HasOne
     {
         return $this->hasOne(Stock::class);
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
     }
 
 
